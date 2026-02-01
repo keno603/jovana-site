@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>jovana 💌</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="page">
+    <section class="card" id="card">
+      <header class="header">
+        <div class="badge">💌 quick question</div>
+        <h1 class="title">
+          <span class="name">jovana</span>, willst du mein Valentine sein?
+        </h1>
+        <p class="subtitle">Keine Stress — nur ein kleines „ja“ reicht 😄</p>
+      </header>
+
+      <div class="arena" id="arena" aria-label="Buttons">
+        <button class="btn btn-yes" id="yesBtn" type="button">
+          Yes 💖
+        </button>
+
+        <button class="btn btn-no" id="noBtn" type="button">
+          No 🙈
+        </button>
+      </div>
+
+      <p class="hint">Tipp: „No“ ist etwas ausweichend…</p>
+
+      <div class="result hidden" id="result" aria-live="polite">
+        <div class="big">Deal! 🎉</div>
+        <p class="small">Okay, jetzt bist du offiziell mein Favorite Person, jovana.</p>
+
+        <!-- Optional: eigenes Bild/GIF -->
+        <img class="media" src="yay.jpg" alt="Celebration" onerror="this.style.display='none'"/>
+
+        <div class="row">
+          <button class="btn btn-ghost" id="replayBtn" type="button">Replay</button>
+          <button class="btn btn-copy" id="copyBtn" type="button">Link kopieren</button>
+        </div>
+      </div>
+
+      <div class="confetti" id="confetti" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

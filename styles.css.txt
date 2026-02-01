@@ -1,0 +1,209 @@
+:root{
+  --bgA:#ffdde9;
+  --bgB:#d6f3ff;
+  --ink:#14131a;
+  --muted: rgba(20,19,26,.62);
+
+  --glass: rgba(255,255,255,.55);
+  --stroke: rgba(20,19,26,.12);
+  --shadow: 0 20px 60px rgba(0,0,0,.18);
+
+  --yes1:#ff4da6;
+  --yes2:#ff1f7a;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: radial-gradient(1100px 700px at 30% 25%, var(--bgA), transparent 60%),
+              radial-gradient(1000px 650px at 75% 70%, var(--bgB), transparent 60%),
+              #fff;
+  overflow:hidden;
+}
+
+.page{
+  min-height:100%;
+  display:grid;
+  place-items:center;
+  padding: 22px;
+}
+
+.card{
+  width:min(760px, 94vw);
+  min-height: 460px;
+  padding: 26px 22px 22px;
+  border-radius: 24px;
+  background: var(--glass);
+  border: 1px solid var(--stroke);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:"";
+  position:absolute; inset:-60px;
+  background: conic-gradient(from 180deg, rgba(255,77,166,.18), rgba(214,243,255,.22), rgba(255,77,166,.18));
+  filter: blur(22px);
+  opacity:.55;
+  z-index:-1;
+}
+
+.header{ text-align:center; padding: 6px 10px 8px; }
+.badge{
+  display:inline-block;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.6);
+  border: 1px solid var(--stroke);
+  font-weight: 700;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.title{
+  margin: 0 0 8px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  font-size: clamp(24px, 3.4vw, 44px);
+  line-height: 1.05;
+}
+.name{
+  background: linear-gradient(90deg, var(--yes1), var(--yes2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.subtitle{
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.arena{
+  position:relative;
+  width: min(560px, 95%);
+  height: 170px;
+  margin: 10px auto 6px;
+  border-radius: 18px;
+  border: 1px dashed rgba(20,19,26,.18);
+  background: rgba(255,255,255,.25);
+  overflow:hidden;
+}
+
+.btn{
+  border:none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 900;
+  cursor:pointer;
+  user-select:none;
+  transition: transform .16s ease, filter .16s ease, box-shadow .16s ease;
+}
+
+.btn-yes{
+  position:absolute;
+  left: 22%;
+  top: 58px;
+  color: white;
+  background: linear-gradient(180deg, var(--yes1), var(--yes2));
+  box-shadow: 0 12px 26px rgba(255,31,122,.22);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  0%,100%{ transform: translateY(0) scale(1); }
+  50%{ transform: translateY(-1px) scale(1.02); }
+}
+
+.btn-no{
+  position:absolute;
+  left: 60%;
+  top: 62px;
+  background: rgba(255,255,255,.75);
+  border: 1px solid var(--stroke);
+  color: #222;
+  font-weight: 800;
+}
+
+.btn-ghost{
+  background: transparent;
+  border: 1px solid rgba(20,19,26,.18);
+}
+
+.btn-copy{
+  background: rgba(20,19,26,.08);
+  border: 1px solid rgba(20,19,26,.10);
+}
+
+.btn:hover{ filter: brightness(1.02); transform: translateY(-1px); }
+
+.hint{
+  margin: 8px 0 0;
+  text-align:center;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.result{
+  text-align:center;
+  margin-top: 10px;
+  padding-top: 8px;
+}
+
+.big{
+  font-size: clamp(28px, 4.2vw, 48px);
+  font-weight: 1000;
+}
+.small{
+  margin: 8px 0 12px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.media{
+  width: min(360px, 80vw);
+  border-radius: 16px;
+  border: 1px solid rgba(20,19,26,.12);
+  box-shadow: 0 14px 30px rgba(0,0,0,.16);
+  display:block;
+  margin: 0 auto 14px;
+}
+
+.row{
+  display:flex;
+  gap: 10px;
+  justify-content:center;
+  flex-wrap: wrap;
+}
+
+.hidden{ display:none; }
+
+.confetti{
+  pointer-events:none;
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  border-radius: 24px;
+}
+
+.confetti span{
+  position:absolute;
+  width: 6px;
+  height: 10px;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(-30px) rotate(0deg);
+  animation: pop 900ms ease-out forwards;
+}
+
+@keyframes pop{
+  0%{ opacity:0; transform: translateY(-30px) rotate(0deg); }
+  18%{ opacity:.95; }
+  100%{ opacity:0; transform: translateY(60px) rotate(260deg); }
+}
